@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import gsap from '../../lib/gsap'
 
-const words = ["Luxury", "Elegance", "Fashion", "Sobhanachala"]
+const words = ["Sobhanachala", "Elegance", "Heritage", "Couture"]
 
 export const LoadingScreen = ({ onFinished }: { onFinished: () => void }) => {
   const [index, setIndex] = useState(0)
@@ -12,11 +12,11 @@ export const LoadingScreen = ({ onFinished }: { onFinished: () => void }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % words.length)
-    }, 1500)
+    }, 1000)
 
     let start = 0
     const end = 100
-    const duration = 4000 // 4 seconds loading
+    const duration = 3000
 
     const updateProgress = (timestamp: number) => {
       if (!start) start = timestamp
@@ -53,8 +53,8 @@ export const LoadingScreen = ({ onFinished }: { onFinished: () => void }) => {
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -50, opacity: 0 }}
-            transition={{ duration: 1.5, ease: [0.12, 0, 0.39, 0] }}
-            className="font-serif italic text-6xl md:text-8xl"
+            transition={{ duration: 0.8 }}
+            className="font-serif italic text-4xl md:text-8xl"
           >
             {words[index]}
           </motion.h2>

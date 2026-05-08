@@ -32,7 +32,7 @@ export const Hero = () => {
 
   return (
     <section ref={containerRef} className="relative h-screen w-full overflow-hidden flex items-center px-8 md:px-20">
-      {/* Background Video */}
+      {/* Background Video - Replaced with more stable source */}
       <div className="absolute inset-0 z-0">
         <video
           ref={videoRef}
@@ -42,13 +42,12 @@ export const Hero = () => {
           playsInline
           className="h-full w-full object-cover"
         >
-          <source src="https://assets.mixkit.co/videos/preview/mixkit-fashion-model-walking-down-the-runway-4322-large.mp4" type="video/mp4" />
+          <source src="https://player.vimeo.com/external/494451551.hd.mp4?s=f52345e691238670a5626017ec058728b7880946&profile_id=175" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px]" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
       </div>
 
-      {/* Hero Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div className="hero-content flex flex-col gap-6">
           <span className="text-gold tracking-[0.4em] uppercase text-sm font-medium">
