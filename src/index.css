@@ -1,0 +1,117 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
+
+@theme {
+  --color-background: hsl(var(--bg));
+  --color-surface: hsl(var(--surface));
+  --color-surface-light: hsl(var(--surface-light));
+  --color-primary: hsl(var(--text));
+  --color-muted: hsl(var(--muted));
+  --color-stroke: hsl(var(--stroke));
+  --color-gold: hsl(var(--gold));
+  --color-accent: hsl(var(--accent));
+
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Instrument Serif", serif;
+
+  --animate-luxury-stroke: luxury-stroke 2s ease-in-out infinite;
+  --animate-marquee: marquee 30s linear infinite;
+
+  @keyframes luxury-stroke {
+    0%, 100% { stroke-dashoffset: 0; }
+    50% { stroke-dashoffset: 100; }
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+}
+
+:root {
+  --bg: 0 0% 4%;
+  --surface: 0 0% 7%;
+  --surface-light: 0 0% 10%;
+  --text: 0 0% 96%;
+  --muted: 0 0% 55%;
+  --stroke: 0 0% 13%;
+  --gold: 42 68% 63%;
+  --accent: 212 45% 65%;
+}
+
+@layer base {
+  body {
+    background-color: hsl(var(--bg));
+    color: hsl(var(--text));
+    @apply font-sans antialiased overflow-x-hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif italic;
+  }
+}
+
+@utility accent-gradient {
+  background: linear-gradient(90deg, #D6B36A 0%, #F2D28A 50%, #B98A2F 100%);
+}
+
+@utility accent-gradient-text {
+  background: linear-gradient(90deg, #D6B36A 0%, #F2D28A 50%, #B98A2F 100%);
+  background-clip: text;
+  color: transparent;
+}
+
+@utility glass {
+  background-color: hsla(var(--surface), 0.4);
+  backdrop-filter: blur(24px);
+  border: 1px solid hsl(var(--stroke));
+}
+
+/* Lenis Recommended Styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Custom Cursor Styles */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: transform 0.1s ease-out;
+}
+
+.custom-cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(214, 179, 106, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+}
