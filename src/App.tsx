@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { SmoothScroll } from './components/layout/SmoothScroll'
 import { Navbar } from './components/layout/Navbar'
@@ -14,11 +15,13 @@ import { Contact } from './pages/Contact'
 import { Footer } from './components/layout/Footer'
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true)
+
   return (
     <Router>
       <SmoothScroll>
         <div className="relative min-h-screen bg-background text-primary selection:bg-gold selection:text-background">
-          <LoadingScreen />
+          {isLoading && <LoadingScreen onFinished={() => setIsLoading(false)} />}
           <CustomCursor />
           <Navbar />
           
